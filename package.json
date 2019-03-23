@@ -1,0 +1,19 @@
+{
+  "name": "techt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Home.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "client": "^0.0.1",
+    "create-react-app": "^2.1.8",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
