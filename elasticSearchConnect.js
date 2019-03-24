@@ -63,7 +63,9 @@ module.exports = function (app) {
     }
 
     function searchParent(req, res) {
-        request.get('http://40.71.97.231:9200/parent/_search', {
+        request.get('http://40.71.97.231:9200/parent/_search?q=firstname:'+parent1.firstname +
+                        +"||lastname:"+parent1.lastname+'||firstname:'+parent2.firstname +
+                    +"||lastname:"+parent2.lastname, {
             "query": {
                 "query_string" : {
                     "default_field" : "content",
