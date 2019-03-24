@@ -1,14 +1,22 @@
 
     const request = require('request')
 
-    function addChild() {
+    function addChild(req, res) {
         request.post('http://40.71.97.231:9200/children/profile', {
-            json:
-                {
-                    "name": "Neha",
-                    "lastname": "Shukla",
-                    "job_description": "Systems administrator and specialit"
-                }
+            json: req
+        }, (error, res, body) => {
+            if (error) {
+                console.error(error)
+                return
+            }
+            console.log(`statusCode: ${res.statusCode}`)
+            console.log(body)
+        })
+    }
+
+    function addParent(req, res) {
+        request.post('http://40.71.97.231:9200/parent/profile', {
+            json: req
         }, (error, res, body) => {
             if (error) {
                 console.error(error)
@@ -32,7 +40,8 @@
             })
     }
 
-    module.exports =  {
-        addChild: addChild,
-        getUsers: getUsers
+    module.exports = function (app) {
+        app.post("/child", addChild)
+        app.post("/parent", addParent)
+        app.get("/users",getUsers)
     }
