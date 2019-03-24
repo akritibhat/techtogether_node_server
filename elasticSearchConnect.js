@@ -51,7 +51,7 @@ module.exports = function (app) {
     }
 
     function searchChild(req, res) {
-        request.get('http://40.71.97.231:9200/_search?q=firstname:xyz||firstname=Akriti'
+        request.get('http://40.71.97.231:9200/children/_search?q=firstname:xyz||firstname=Akriti'
         , (error, re, body) => {
             if (error) {
                 console.error(error)
@@ -63,9 +63,7 @@ module.exports = function (app) {
     }
 
     function searchParent(req, res) {
-        request.get('http://40.71.97.231:9200/parent/_search?q=firstname:'+parent1.firstname +
-                        +"||lastname:"+parent1.lastname+'||firstname:'+parent2.firstname +
-                    +"||lastname:"+parent2.lastname, {
+        request.get('http://40.71.97.231:9200/parent/_search?', {
             "query": {
                 "query_string" : {
                     "default_field" : "content",
