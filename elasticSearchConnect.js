@@ -1,4 +1,10 @@
-
+module.exports = function (app) {
+    app.post("/child", addChild);
+    app.post("/parent", addParent);
+    app.get("/users", getUsers);
+    app.get("/child", searchChild);
+    app.get("/parent", searchParent)
+};
     const request = require('request')
 
     function addChild(req, res) {
@@ -40,8 +46,11 @@
             })
     }
 
-    module.exports = function (app) {
-        app.post("/child", addChild)
-        app.post("/parent", addParent)
-        app.get("/users",getUsers)
+    function searchChild(req, res) {
+
     }
+
+    function searchParent(req, res) {
+
+    }
+

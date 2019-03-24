@@ -29,7 +29,7 @@ app.get('/', function(req, res) {
 
 es = require('./elasticSearchConnect')
 login = require('./login')
-login(app)
-es.getUsers();
+login(app);
+es(app);
 app.listen(process.env.PORT || 4000)
 
